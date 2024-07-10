@@ -1,0 +1,17 @@
+type: edu
+files:
+  - name: src/antifraud/AntiFraudApplication.java
+    visible: true
+    learner_created: false
+  - name: src/resources/application.properties
+    visible: true
+    learner_created: false
+  - name: build.gradle
+    visible: true
+    learner_created: false
+  - name: test/AntiFraudTest.java
+    visible: false
+    learner_created: false
+feedback_link: https://hyperskill.org/projects/232/stages/1166/implement#comment
+status: Unchecked
+record: -1
