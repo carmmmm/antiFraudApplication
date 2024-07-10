@@ -12,6 +12,12 @@ files:
   - name: test/AntiFraudTest.java
     visible: false
     learner_created: false
+  - name: src/antifraud/controller/AntiFraudController.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/Transaction.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/projects/232/stages/1162/implement#comment
 status: Unchecked
 record: -1

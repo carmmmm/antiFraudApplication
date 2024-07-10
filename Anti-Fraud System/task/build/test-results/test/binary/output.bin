@@ -1,0 +1,121 @@
+[1;31m
+Start test 1[0m
+[0;34m
+3[0m[0;34m  .   ____          _            __ _ _
+4[0m[0;34m /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+5[0m[0;34m( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+6[0m[0;34m \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+5[0m[0;34m  '  |____| .__|_| |_|_| |_\__, | / / / /
+4[0m[0;34m =========|_|==============|___/=/_/_/_/
+6[0m[0;34m :: Spring Boot ::                (v3.0.2)
+[0m[0;34m
+ü[0m[0;34m2024-07-10T16:51:23.895-04:00  INFO 41950 --- [    Test worker] antifraud.AntiFraudApplication           : Starting AntiFraudApplication using Java 17.0.11 with PID 41950 (started by CarmenLaptop in /Users/CarmenLaptop/Desktop/coding/Anti-Fraud System/Anti-Fraud System/task)
+∫[0m[0;34m2024-07-10T16:51:23.904-04:00  INFO 41950 --- [    Test worker] antifraud.AntiFraudApplication           : No active profile set, falling back to 1 default profile: "default"
+§[0m[0;34m2024-07-10T16:51:25.318-04:00  INFO 41950 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 28852 (http)
+ê[0m[0;34m2024-07-10T16:51:25.330-04:00  INFO 41950 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+¶[0m[0;34m2024-07-10T16:51:25.330-04:00  INFO 41950 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+©[0m[0;34m2024-07-10T16:51:25.421-04:00  INFO 41950 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+∂[0m[0;34m2024-07-10T16:51:25.423-04:00  INFO 41950 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1452 ms
+¨[0m[0;34m2024-07-10T16:51:26.032-04:00  INFO 41950 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+≥[0m[0;34m2024-07-10T16:51:26.084-04:00  INFO 41950 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 28852 (http) with context path ''
+¿[0m[0;34m2024-07-10T16:51:26.098-04:00  INFO 41950 --- [    Test worker] antifraud.AntiFraudApplication           : Started AntiFraudApplication in 2.751 seconds (process running for 3.619)
+[0m[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+![0m[0;34mrequest: 'amount = 1'
+N[0m[0;34mExpectations: 'Result validating of Transaction must be 'ALLOWED''
+[0m[0;34m-----
+¨[0;34m2024-07-10T16:51:26.454-04:00  INFO 41950 --- [io-28852-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+ü[0m[0;34m2024-07-10T16:51:26.454-04:00  INFO 41950 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+ó[0m[0;34m2024-07-10T16:51:26.456-04:00  INFO 41950 --- [io-28852-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[0m[1;31m
+Start test 2[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+#[0m[0;34mrequest: 'amount = 199'
+N[0m[0;34mExpectations: 'Result validating of Transaction must be 'ALLOWED''
+[0m[0;34m-----
+[0m[1;31m
+Start test 3[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+#[0m[0;34mrequest: 'amount = 200'
+N[0m[0;34mExpectations: 'Result validating of Transaction must be 'ALLOWED''
+[0m[0;34m-----
+[0m[1;31m
+Start test 4[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+#[0m[0;34mrequest: 'amount = 201'
+X[0m[0;34mExpectations: 'Result validating of Transaction must be 'MANUAL_PROCESSING''
+[0m[0;34m-----
+[0m[1;31m
+Start test 5[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+$[0m[0;34mrequest: 'amount = 1499'
+X[0m[0;34mExpectations: 'Result validating of Transaction must be 'MANUAL_PROCESSING''
+[0m[0;34m-----
+[0m[1;31m
+Start test 6[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+$[0m[0;34mrequest: 'amount = 1500'
+X[0m[0;34mExpectations: 'Result validating of Transaction must be 'MANUAL_PROCESSING''
+[0m[0;34m-----
+[0m[1;31m
+Start test 7[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+$[0m[0;34mrequest: 'amount = 1501'
+Q[0m[0;34mExpectations: 'Result validating of Transaction must be 'PROHIBITED''
+[0m[0;34m-----
+[0m[1;31m
+Start test 8[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+$[0m[0;34mrequest: 'amount = 2000'
+Q[0m[0;34mExpectations: 'Result validating of Transaction must be 'PROHIBITED''
+[0m[0;34m-----
+[0m[1;31m
+Start test 9[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+"[0m[0;34mrequest: 'amount = -1'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m[1;31m
+Start test 10[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+![0m[0;34mrequest: 'amount = 0'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m[1;31m
+Start test 11[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+$[0m[0;34mrequest: 'amount = null'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m[1;31m
+Start test 12[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+"[0m[0;34mrequest: 'amount = ""'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m[1;31m
+Start test 13[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+#[0m[0;34mrequest: 'amount = " "'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m[1;31m
+Start test 14[0m
+[0;34mTest case
+5[0m[0;34mTesting api: '/api/antifraud/transaction'
+![0m[0;34mrequest: 'empty body'
+A[0m[0;34mExpectations: 'Response status must be 'Bad request''
+[0m[0;34m-----
+[0m
