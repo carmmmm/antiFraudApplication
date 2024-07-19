@@ -1,5 +1,6 @@
 package antifraud.model;
 
+//Represents a transaction
 public class Transaction {
     private Long amount;
 

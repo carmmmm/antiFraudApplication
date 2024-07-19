@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -10,6 +11,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Anti-Fraud System/task" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/classes/java" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/generated/sources/annotationProcessor/java" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/generated/sources/headers/java" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/reports/tests" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/test-results" />
+            <option value="$PROJECT_DIR$/Anti-Fraud System/task/build/tmp" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>
