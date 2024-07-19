@@ -43,12 +43,8 @@ files:
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18068#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #9
-
-    GET /api/auth/list should respond with status code 200, responded: 401
-    Response body:
-  time: "Thu, 18 Jul 2024 21:39:31 UTC"
+  message: Congratulations!
+  time: "Fri, 19 Jul 2024 13:11:05 UTC"
 record: -1
