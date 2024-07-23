@@ -1,5 +1,6 @@
 package antifraud.config;
 
+import antifraud.service.CustomUserDetailsService;
 import antifraud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -32,7 +33,7 @@ public class SecurityConfig {
 
 
     @Autowired
-    private UserService userService;
+    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -40,10 +41,14 @@ public class SecurityConfig {
 //    public SecurityConfig(AuthenticationEntryPoint restAuthenticationEntryPoint) {
 //        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
 //    }
-
-    void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
-    }
+//
+//    void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
+//    }
+//
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
+//    }
 
 
 

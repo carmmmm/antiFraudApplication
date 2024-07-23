@@ -6,6 +6,9 @@ import antifraud.enums.UserStatus;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 
@@ -35,6 +38,13 @@ public class User implements Serializable {
 
     @Column(nullable = false)
     private boolean isAccountLocked;
+
+    @ManyToMany
+    private final List<RoleUser> roles = new ArrayList<>();
+
+    public Collection<RoleUser> getRoles() {
+        return roles;
+    }
 
 
     public User(String name, String username, String password, Role role, UserStatus status) {

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,8 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+
+
 
 
     @PostMapping("/user")
@@ -77,8 +80,9 @@ public class AuthController {
         return new ResponseEntity<>(new StatusResponse("User " + user.getUsername() + " " + user.getStatus().name().toLowerCase() + "!"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAuthority('ADMINISTRATOR')")
+
     @GetMapping("/list")
+    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'MERCHANT', 'SUPPORT')")
     public ResponseEntity<?> listUsers(@RequestBody User user) throws ConflictException {
         if (user.getRole() != Role.ADMINISTRATOR || user.getRole() != Role.MERCHANT || user.getRole() != Role.SUPPORT) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);

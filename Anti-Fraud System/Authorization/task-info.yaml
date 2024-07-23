@@ -21,9 +21,6 @@ files:
   - name: src/antifraud/model/User.java
     visible: true
     learner_created: true
-  - name: src/antifraud/config/RestAuthenticationEntryPoint.java
-    visible: true
-    learner_created: true
   - name: src/antifraud/repository/UserRepository.java
     visible: true
     learner_created: true
@@ -69,6 +66,12 @@ files:
   - name: src/antifraud/exceptions/ConflictException.java
     visible: true
     learner_created: true
+  - name: src/antifraud/model/RoleUser.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/Operation.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18069#comment
 status: Failed
 feedback:
@@ -77,5 +80,5 @@ feedback:
 
     GET /api/auth/list should respond with status code 200, responded: 401
     Response body:
-  time: "Tue, 23 Jul 2024 20:26:35 UTC"
+  time: "Tue, 23 Jul 2024 21:51:27 UTC"
 record: -1
