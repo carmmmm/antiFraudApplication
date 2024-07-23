@@ -1,11 +1,21 @@
-package antifraud.model;
+package antifraud.dtos;
+
+
+import antifraud.enums.Role;
 
 public class UserDTO {
     private String name;
     private String username;
     private Long id;
+    private Role role;
 
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getName() {
         return name;
@@ -31,9 +41,10 @@ public class UserDTO {
         this.id = id;
     }
 
-    public UserDTO(String name, String username, Long id) {
+    public UserDTO(String name, String username, Long id, Role role) {
         this.name = name;
         this.username = username;
         this.id = id;
+        this.role = role;
     }
 }

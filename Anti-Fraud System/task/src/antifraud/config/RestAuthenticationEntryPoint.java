@@ -19,7 +19,10 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     }
 
     @Override
-    public void commence(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(jakarta.servlet.http.HttpServletRequest request,
+                         jakarta.servlet.http.HttpServletResponse response,
+                         AuthenticationException authException)
+            throws IOException, ServletException {
 //        @Override
 //        public void commence(HttpServletRequest request,
 //                HttpServletResponse response,

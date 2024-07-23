@@ -12,6 +12,70 @@ files:
   - name: test/AntiFraudTest.java
     visible: false
     learner_created: false
+  - name: src/antifraud/config/PasswordConfig.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/Transaction.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/User.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/config/RestAuthenticationEntryPoint.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/repository/UserRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/controller/AntiFraudController.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/controller/AuthController.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/dtos/UserDTO.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/config/SecurityConfig.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/service/CustomUserDetailsService.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/enums/Role.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/enums/UserStatus.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/service/UserService.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/dtos/UserRegistrationDto.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/dtos/UserRoleDto.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/dtos/UserStatusDto.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/StatusResponse.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/exceptions/BadRequestException.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/exceptions/ConflictException.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18069#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #4
+
+    GET /api/auth/list should respond with status code 200, responded: 401
+    Response body:
+  time: "Tue, 23 Jul 2024 20:26:35 UTC"
 record: -1
