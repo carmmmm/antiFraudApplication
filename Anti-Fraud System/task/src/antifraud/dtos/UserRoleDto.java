@@ -1,6 +1,6 @@
 package antifraud.dtos;
 
-import antifraud.enums.Role;
+import antifraud.enums.RoleEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 public class UserRoleDto {
     private String username;
-    private Role role;
+    private RoleEnum role;
 }

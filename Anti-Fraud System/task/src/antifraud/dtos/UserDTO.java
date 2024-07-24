@@ -1,20 +1,21 @@
 package antifraud.dtos;
 
 
-import antifraud.enums.Role;
+
+import antifraud.enums.RoleEnum;
 
 public class UserDTO {
     private String name;
     private String username;
     private Long id;
-    private Role role;
+    private RoleEnum role;
 
 
-    public Role getRole() {
+    public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(RoleEnum role) {
         this.role = role;
     }
 
@@ -42,7 +43,7 @@ public class UserDTO {
         this.id = id;
     }
 
-    public UserDTO(String name, String username, Long id, Role role) {
+    public UserDTO(String name, String username, Long id, RoleEnum role) {
         this.name = name;
         this.username = username;
         this.id = id;

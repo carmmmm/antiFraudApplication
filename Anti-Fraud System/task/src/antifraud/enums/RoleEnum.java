@@ -1,6 +1,6 @@
 package antifraud.enums;
 
-public enum Role {
+public enum RoleEnum {
     ADMINISTRATOR,
     MERCHANT,
     SUPPORT

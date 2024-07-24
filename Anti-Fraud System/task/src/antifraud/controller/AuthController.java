@@ -3,7 +3,7 @@ package antifraud.controller;
 import antifraud.dtos.UserDTO;
 import antifraud.dtos.UserRoleDto;
 import antifraud.dtos.UserStatusDto;
-import antifraud.enums.Role;
+import antifraud.enums.RoleEnum;
 import antifraud.enums.UserStatus;
 import antifraud.model.*;
 import antifraud.repository.RoleRepository;
@@ -14,7 +14,6 @@ import antifraud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -65,11 +64,11 @@ public class AuthController {
         }
 
         // Determine role based on existing users
-        Role role = userRepository.count() == 0 ? Role.ADMINISTRATOR : Role.MERCHANT;
+        RoleEnum role = userRepository.count() == 0 ? RoleEnum.ADMINISTRATOR : RoleEnum.MERCHANT;
         user.setRole(role);
 
         // Set default locked status
-        user.setStatus(role == Role.ADMINISTRATOR ? UserStatus.ACTIVE : UserStatus.LOCKED);
+        user.setStatus(role == RoleEnum.ADMINISTRATOR ? UserStatus.ACTIVE : UserStatus.LOCKED);
 
         // Encode the password and save the user
         user.setPassword(passwordEncoder.encode(user.getPassword()));

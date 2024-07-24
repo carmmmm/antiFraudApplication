@@ -14,29 +14,17 @@ public class Privilege {
     private String name;
 
     @ManyToMany(mappedBy = "privileges")
-    private Collection<RoleUser> roles;
+    private Collection<Role> roles;
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public Collection<RoleUser> getRoles() {
-        return roles;
-    }
+    public Collection<Role> getRoles() { return roles; }
 
-    public void setRoles(Collection<RoleUser> roles) {
-        this.roles = roles;
-    }
+    public void setRoles(Collection<Role> roles) { this.roles = roles; }
 }

@@ -1,19 +1,9 @@
 package antifraud.model;
 
-
-import antifraud.enums.Role;
+import antifraud.enums.RoleEnum;
 import antifraud.enums.UserStatus;
 import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-
 
 //Represents a user.
 @Entity
@@ -33,37 +23,31 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @Enumerated(EnumType.STRING)
-    private UserStatus status;
-
-    //this is added
-
     @Column(nullable = false)
     private boolean enabled;
 
     @Column(nullable = false)
     private boolean tokenExpired;
 
+    @Column(nullable = false)
+    private RoleEnum role;
+
+    @Column(nullable = false)
+    private UserStatus status;
+
     @ManyToMany
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(
+            name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<RoleUser> roles;
+    private Collection<Role> roles;
 
 
-    public User(String name, String username, String password, Role role, UserStatus status) {
+    public User(String name, String username, String password) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
-        this.role = role;
-        this.status = status;
     }
 
     public User() {}
@@ -94,39 +78,23 @@ public class User {
 
     public void setPassword(String password) { this.password = password; }
 
-    public Role getRole() { return role; }
+    public boolean isEnabled() { return enabled; }
 
-    public void setRole(Role role) { this.role = role; }
+    public void setEnabled(boolean enabled) { this.enabled = enabled; }
 
-    public UserStatus getStatus() {
-        return status;
-    }
+    public boolean isTokenExpired() { return tokenExpired; }
 
-    public void setStatus(UserStatus status) {
-        this.status = status;
-    }
+    public void setTokenExpired(boolean tokenExpired) { this.tokenExpired = tokenExpired; }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+    public Collection<Role> getRoles() { return roles; }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+    public void setRoles(Collection<Role> roles) { this.roles = roles; }
 
-    public boolean isTokenExpired() {
-        return tokenExpired;
-    }
+    public RoleEnum getRole() { return role; }
 
-    public void setTokenExpired(boolean tokenExpired) {
-        this.tokenExpired = tokenExpired;
-    }
+    public void setRole(RoleEnum role) { this.role = role; }
 
-    public Collection<RoleUser> getRoles() {
-        return roles;
-    }
+    public UserStatus getStatus() { return status; }
 
-    public void setRoles(Collection<RoleUser> roles) {
-        this.roles = roles;
-    }
+    public void setStatus(UserStatus status) { this.status = status; }
 }
