@@ -4,6 +4,9 @@ package antifraud.model;
 import antifraud.enums.Role;
 import antifraud.enums.UserStatus;
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ import java.util.Set;
 //Represents a user.
 @Entity
 @Table(name = "app_user")
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,15 +39,22 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
+    //this is added
+
     @Column(nullable = false)
-    private boolean isAccountLocked;
+    private boolean enabled;
+
+    @Column(nullable = false)
+    private boolean tokenExpired;
 
     @ManyToMany
-    private final List<RoleUser> roles = new ArrayList<>();
-
-    public Collection<RoleUser> getRoles() {
-        return roles;
-    }
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<RoleUser> roles;
 
 
     public User(String name, String username, String password, Role role, UserStatus status) {
@@ -56,9 +66,7 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public User() {
-
-    }
+    public User() {}
 
     public Long getId() {
         return id;
@@ -80,25 +88,15 @@ public class User implements Serializable {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUsername(String username) { this.username = username; }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) { this.password = password; }
 
-    public Role getRole() {
-        return role;
-    }
+    public Role getRole() { return role; }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+    public void setRole(Role role) { this.role = role; }
 
     public UserStatus getStatus() {
         return status;
@@ -108,12 +106,27 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public boolean isAccountLocked() {
-        return isAccountLocked;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setAccountLocked(boolean accountNonLocked) {
-        isAccountLocked = accountNonLocked;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
+    public boolean isTokenExpired() {
+        return tokenExpired;
+    }
+
+    public void setTokenExpired(boolean tokenExpired) {
+        this.tokenExpired = tokenExpired;
+    }
+
+    public Collection<RoleUser> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<RoleUser> roles) {
+        this.roles = roles;
+    }
 }

@@ -36,9 +36,6 @@ files:
   - name: src/antifraud/config/SecurityConfig.java
     visible: true
     learner_created: true
-  - name: src/antifraud/service/CustomUserDetailsService.java
-    visible: true
-    learner_created: true
   - name: src/antifraud/enums/Role.java
     visible: true
     learner_created: true
@@ -48,16 +45,10 @@ files:
   - name: src/antifraud/service/UserService.java
     visible: true
     learner_created: true
-  - name: src/antifraud/dtos/UserRegistrationDto.java
-    visible: true
-    learner_created: true
   - name: src/antifraud/dtos/UserRoleDto.java
     visible: true
     learner_created: true
   - name: src/antifraud/dtos/UserStatusDto.java
-    visible: true
-    learner_created: true
-  - name: src/antifraud/model/StatusResponse.java
     visible: true
     learner_created: true
   - name: src/antifraud/exceptions/BadRequestException.java
@@ -66,10 +57,19 @@ files:
   - name: src/antifraud/exceptions/ConflictException.java
     visible: true
     learner_created: true
+  - name: src/antifraud/model/Operation.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/model/StatusResponse.java
+    visible: true
+    learner_created: true
   - name: src/antifraud/model/RoleUser.java
     visible: true
     learner_created: true
-  - name: src/antifraud/model/Operation.java
+  - name: src/antifraud/model/Privilege.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/repository/RoleRepository.java
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18069#comment
@@ -80,5 +80,12 @@ feedback:
 
     GET /api/auth/list should respond with status code 200, responded: 401
     Response body:
-  time: "Tue, 23 Jul 2024 21:51:27 UTC"
+    {
+      &quot;timestamp&quot; : &quot;2024-07-24T19:51:08.641+00:00&quot;,
+      &quot;status&quot; : 401,
+      &quot;error&quot; : &quot;Unauthorized&quot;,
+      &quot;message&quot; : &quot;Unauthorized&quot;,
+      &quot;path&quot; : &quot;/api/auth/list&quot;
+    }
+  time: "Wed, 24 Jul 2024 19:51:09 UTC"
 record: -1

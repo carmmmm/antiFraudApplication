@@ -6,6 +6,7 @@ import antifraud.dtos.UserStatusDto;
 import antifraud.enums.Role;
 import antifraud.enums.UserStatus;
 import antifraud.model.*;
+import antifraud.repository.RoleRepository;
 import antifraud.repository.UserRepository;
 import antifraud.exceptions.BadRequestException;
 import antifraud.exceptions.ConflictException;
@@ -14,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,7 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 //Handles user registration, listing, and deletion.
-@EnableMethodSecurity
+//@EnableMethodSecurity
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -39,8 +38,22 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RoleRepository roleRepository;
 
-
+    @GetMapping("/list")
+    public ResponseEntity<?> listUsers(@Valid @RequestBody User user) throws ConflictException {
+//        if (user.getRole() != Role.ADMINISTRATOR || user.getRole() != Role.MERCHANT || user.getRole() != Role.SUPPORT) {
+//            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+//        }
+        List<User> userss = userRepository.findAll();
+        // Transform users to DTOs if needed
+        List<UserDTO> userDTOs = userss.stream()
+                .map(users -> new UserDTO(users.getName(), users.getUsername(), users.getId(), users.getRole()))
+                .collect(Collectors.toList());
+        userss.forEach(users -> System.out.println("Id: " + users.getId() + "User: " + users.getName() + " - " + users.getUsername() + "Role: " + users.getRole()));
+        return ResponseEntity.ok(userDTOs);
+    }
 
     @PostMapping("/user")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user) {
@@ -56,7 +69,7 @@ public class AuthController {
         user.setRole(role);
 
         // Set default locked status
-        user.setAccountLocked(role == Role.ADMINISTRATOR ? false : true);
+        user.setStatus(role == Role.ADMINISTRATOR ? UserStatus.ACTIVE : UserStatus.LOCKED);
 
         // Encode the password and save the user
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -80,21 +93,6 @@ public class AuthController {
         return new ResponseEntity<>(new StatusResponse("User " + user.getUsername() + " " + user.getStatus().name().toLowerCase() + "!"), HttpStatus.OK);
     }
 
-
-    @GetMapping("/list")
-    @PreAuthorize("hasAnyRole('ADMINISTRATOR', 'MERCHANT', 'SUPPORT')")
-    public ResponseEntity<?> listUsers(@RequestBody User user) throws ConflictException {
-        if (user.getRole() != Role.ADMINISTRATOR || user.getRole() != Role.MERCHANT || user.getRole() != Role.SUPPORT) {
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-        }
-        List<User> userss = userRepository.findAll();
-        // Transform users to DTOs if needed
-        List<UserDTO> userDTOs = userss.stream()
-                .map(users -> new UserDTO(users.getName(), users.getUsername(), users.getId(), users.getRole()))
-                .collect(Collectors.toList());
-        userss.forEach(users -> System.out.println("Id: " + users.getId() + "User: " + users.getName() + " - " + users.getUsername() + "Role: " + users.getRole()));
-        return ResponseEntity.ok(userDTOs);
-    }
 
     @DeleteMapping("/user/{username}")
     public ResponseEntity<?> deleteUser(@PathVariable String username) {
