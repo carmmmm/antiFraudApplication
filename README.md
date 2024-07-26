@@ -53,7 +53,8 @@ Tracks all transactions, including those marked as PROHIBITED, and supports quer
 * DELETE /api/auth/user: Remove a user from the system.
 * GET /api/auth/list: List all users in the system.
 ## Example Scenarios
-### Transaction Validation: A transaction with an amount above the threshold might be categorized as MANUAL_PROCESSING and later reviewed based on feedback.
+### Transaction Validation: 
+A transaction with an amount above the threshold might be categorized as MANUAL_PROCESSING and later reviewed based on feedback.
 POST /api/antifraud/transaction
 Request Body:
 
@@ -73,8 +74,10 @@ Response:
   "info": "amount"
 }
 ```
-### Feedback Handling: Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
-### History Retrieval: Easily access transaction records to review past activities and audit transactions for anomalies.
+### Feedback Handling: 
+Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
+### History Retrieval: 
+Easily access transaction records to review past activities and audit transactions for anomalies.
 GET /api/antifraud/history/4000008449433403
  
 Response:
