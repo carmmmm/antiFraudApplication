@@ -1,21 +1,34 @@
 # Anti-Fraud System
 
 ## Overview
-This Anti-Fraud System is a comprehensive solution designed to detect and manage fraudulent activities in financial transactions. Developed with an emphasis on security and adaptability, the system leverages advanced fraud detection rules, feedback mechanisms, and transaction history management to provide robust protection against fraudulent behavior. This project demonstrates a deep understanding of modern software development practices, utilizing key technologies and frameworks to deliver a scalable and effective anti-fraud solution.
+This Anti-Fraud System is a comprehensive solution designed to detect and manage fraudulent activities in financial transactions. Developed with an emphasis on security and adaptability, the system leverages advanced fraud detection rules, feedback mechanisms, and transaction history management to provide robust protection against fraudulent behavior. The project showcases a robust implementation using modern technologies such as Spring Boot, Jakarta Persistence (JPA), and an H2 database.
 
 ## Key Features
-1. Transaction Management
-Real-time Transaction Validation: Validates incoming transactions based on predefined rules and heuristics.
-Enhanced Fraud Detection: Incorporates correlation-based rules to detect suspicious activities across multiple transactions and regions.
-2. Rule-Based Fraud Detection
-Rule Correlation: Implements sophisticated rules to categorize transactions as ALLOWED, MANUAL_PROCESSING, or PROHIBITED based on historical data.
-Regional and IP Address Correlation: Detects anomalies by analyzing transaction patterns from different regions and IP addresses.
-3. Feedback Mechanism
-Dynamic Rule Adjustment: Adapts fraud detection rules based on manual feedback from SUPPORT specialists.
-Limit Adjustment: Automatically adjusts detection limits using feedback to refine the fraud detection algorithms.
-4. Transaction History Management
-Comprehensive History Tracking: Maintains a complete history of all transactions, including their validation results and feedback.
-Detailed History Endpoints: Provides endpoints to retrieve transaction history by card number or view the entire transaction history.
+### 1. Fraud Detection Rules
+The system employs heuristic rules to assess transaction validity, considering multiple factors:
+
+* Chrono Clock Logic: Transactions are correlated based on their timestamps. This allows for detecting suspicious activities over time.
+* IP Address Correlation: Flags transactions that originate from multiple IP addresses within a short timeframe.
+* Regional Analysis: Identifies transactions from various regions to spot anomalies.
+### 2. Role-Based Access Control
+The system incorporates a role-based access control model to manage different user permissions:
+
+* Anonymous: No access.
+* MERCHANT: Limited to transaction creation.
+* ADMINISTRATOR: Full control over user roles and transactions.
+* SUPPORT: Manages feedback and transaction history.
+### 3. Feedback Mechanism
+A manual feedback system allows SUPPORT specialists to adjust fraud detection parameters:
+
+* ALLOWED: Indicates a transaction is legitimate.
+* MANUAL_PROCESSING: Requires further review.
+* PROHIBITED: Marks a transaction as fraudulent.
+* Feedback updates the detection limits according to the following formulas:
+
+Increase Limit: new_limit = ceil(0.8 * current_limit + 0.2 * value_from_transaction)
+Decrease Limit: new_limit = ceil(0.8 * current_limit - 0.2 * value_from_transaction)
+### 4. Transaction History
+Tracks all transactions, including those marked as PROHIBITED, and supports querying by card number or retrieving the entire history.
 
 ## Technologies Used
 * Spring Boot: Framework for building the RESTful APIs and managing application configurations.
