@@ -76,6 +76,31 @@ Response:
 ```
 ### Feedback Handling: 
 Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
+PUT /api/antifraud/transaction
+
+Request Body:
+```
+{
+  "transactionId": 1,
+  "feedback": "ALLOWED"
+}
+```
+
+Response:
+
+```
+{
+  "transactionId": 1,
+  "amount": 210,
+  "ip": "192.168.1.1",
+  "number": "4000008449433403",
+  "region": "EAP",
+  "date": "2022-01-22T16:04:00",
+  "result": "MANUAL_PROCESSING",
+  "feedback": "ALLOWED"
+}
+
+```
 
 ### History Retrieval: 
 Easily access transaction records to review past activities and audit transactions for anomalies.
@@ -98,31 +123,6 @@ Response:
   }
 ]
 ```
-
-Example 3: PUT /api/antifraud/transaction
-Request Body:
-
-json
-Copy code
-{
-  "transactionId": 1,
-  "feedback": "ALLOWED"
-}
-Response:
-
-json
-Copy code
-{
-  "transactionId": 1,
-  "amount": 210,
-  "ip": "192.168.1.1",
-  "number": "4000008449433403",
-  "region": "EAP",
-  "date": "2022-01-22T16:04:00",
-  "result": "MANUAL_PROCESSING",
-  "feedback": "ALLOWED"
-}
-
   
 ## Installation and Setup
 ### Clone the Repository
