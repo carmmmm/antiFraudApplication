@@ -4,7 +4,7 @@
     <output url="file://$MODULE_DIR$/../../../../../../Anti-Fraud System/task/build/tmp/out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../../../Anti-Fraud System/task/build/tmp/src" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="jbr-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

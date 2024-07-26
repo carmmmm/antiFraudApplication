@@ -13,6 +13,110 @@ files:
   - name: test/AntiFraudTest.java
     visible: false
     learner_created: false
+  - name: src/antifraud/authentication/AuthenticationService.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/FeedbackRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/transaction/TransactionService.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/authorizationmodels/Role.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaseentities/User.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/security/SecurityConfiguration.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/transaction/TransactionController.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/AccountLockRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/CardRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaseentities/SuspiciousIP.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/transaction/TransactionInfo.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/customconfiguration/RestAuthenticationEntryPoint.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaserepositories/SuspiciousIPsRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/authentication/AuthenticationController.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaserepositories/CardLimitRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/customconfiguration/GlobalExceptionHandler.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/ChangeRoleRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/user/UserDetails.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaserepositories/UserRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaserepositories/TransactionRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaseentities/CardLimits.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaseentities/StolenCard.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/transaction/TransactionRegionCode.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/security/SecurityService.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaserepositories/CardRepository.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/transaction/TransactionStatus.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/user/UserDetailsServiceCustom.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/TransactionRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/requests/IPRequest.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/databaseentities/Transaction.java
+    visible: true
+    learner_created: true
+  - name: src/antifraud/security/SecurityController.java
+    visible: true
+    learner_created: true
 feedback_link: https://hyperskill.org/learn/step/18070#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #25
+
+    POST /api/antifraud/transaction should respond with status code 400, responded: 200
+    Response body:
+    {
+      &quot;result&quot; : &quot;ALLOWED&quot;,
+      &quot;info&quot; : &quot;none&quot;
+    }
+  time: "Thu, 25 Jul 2024 21:19:07 UTC"
 record: -1

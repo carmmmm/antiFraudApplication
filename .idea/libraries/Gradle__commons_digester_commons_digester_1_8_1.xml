@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: commons-digester:commons-digester:1.8.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="commons-digester" artifactId="commons-digester" version="1.8.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-digester/commons-digester/1.8.1/3dec9b9c7ea9342d4dbe8c38560080d85b44a015/commons-digester-1.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
