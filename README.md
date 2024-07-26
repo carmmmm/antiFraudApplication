@@ -128,14 +128,13 @@ Copy code
 ### Clone the Repository
 
 ```
-git clone <repository-url>
-
+git clone https://github.com/carmmmm/antiFraudApplication.git
 ```
 
 ### Navigate to the Project Directory
 
 ```
-cd <project-directory>
+cd antiFraudApplication
 ```
 
 ### Build the Project
@@ -150,4 +149,4 @@ cd <project-directory>
 ```
 ### Access the Application
 
-Open your browser and navigate to http://localhost:8080.
+Open your browser and navigate to http://localhost:28852 or use postman to send and recieve requests. 
