@@ -27,15 +27,15 @@ public class CardLimits {
     @Column
     private long manualProcessingLimit = 0;
 
-//    public CardLimits(String cardNumber, long allowedLimit, long manualProcessingLimit) {
-//        this.cardNumber = cardNumber;
-//        this.allowedLimit = allowedLimit;
-//        this.manualProcessingLimit = manualProcessingLimit;
-//    }
+    public CardLimits(String cardNumber, long allowedLimit, long manualProcessingLimit) {
+        this.cardNumber = cardNumber;
+        this.allowedLimit = allowedLimit;
+        this.manualProcessingLimit = manualProcessingLimit;
+    }
 
     public CardLimits(String cardNumber) {
         this.cardNumber = cardNumber;
-        this.allowedLimit = 200;
-        this.manualProcessingLimit = 1500;
+        this.allowedLimit = 0;
+        this.manualProcessingLimit = 0;
     }
 }

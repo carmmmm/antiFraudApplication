@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.StreamSupport;
 
+//a service class to implement the methods used in the authentication controller class
 @Service
 public class AuthenticationService {
 

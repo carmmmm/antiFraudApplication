@@ -6,6 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+//An exception handler to handle nonvalid argument requests
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

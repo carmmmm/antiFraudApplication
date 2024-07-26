@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+//A class holding the card authentication endpoints
 @RestController
 @RequestMapping("/api/auth")
 public class AuthenticationController {

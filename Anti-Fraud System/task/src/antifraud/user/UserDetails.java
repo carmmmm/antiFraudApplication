@@ -1,7 +1,6 @@
 package antifraud.user;
 
 import antifraud.databaseentities.User;
-import org.apache.catalina.authenticator.SingleSignOnListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

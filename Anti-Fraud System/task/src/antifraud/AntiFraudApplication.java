@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class AntiFraudApplication {
-    //to push to git
+    //run application from here to start springboot
     public static void main(String[] args) {
         SpringApplication.run(AntiFraudApplication.class, args);
     }
