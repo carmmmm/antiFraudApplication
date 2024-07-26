@@ -76,8 +76,10 @@ Response:
 ```
 ### Feedback Handling: 
 Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
+
 ### History Retrieval: 
 Easily access transaction records to review past activities and audit transactions for anomalies.
+
 GET /api/antifraud/history/4000008449433403
  
 Response:
@@ -123,26 +125,29 @@ Copy code
 
   
 ## Installation and Setup
-Clone the Repository
+### Clone the Repository
 
-bash
-Copy code
+```
 git clone <repository-url>
-Navigate to the Project Directory
 
-bash
-Copy code
+```
+
+### Navigate to the Project Directory
+
+```
 cd <project-directory>
-Build the Project
+```
 
-bash
-Copy code
+### Build the Project
+
+```
 ./mvnw clean install
-Run the Application
+```
+### Run the Application
 
-bash
-Copy code
+```
 ./mvnw spring-boot:run
-Access the Application
+```
+### Access the Application
 
 Open your browser and navigate to http://localhost:8080.
