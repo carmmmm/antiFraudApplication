@@ -24,9 +24,12 @@ A manual feedback system allows SUPPORT specialists to adjust fraud detection pa
 * MANUAL_PROCESSING: Requires further review.
 * PROHIBITED: Marks a transaction as fraudulent.
 * Feedback updates the detection limits according to the following formulas:
-
+  
+```
 Increase Limit: new_limit = ceil(0.8 * current_limit + 0.2 * value_from_transaction)
 Decrease Limit: new_limit = ceil(0.8 * current_limit - 0.2 * value_from_transaction)
+```
+
 ### 4. Transaction History
 Tracks all transactions, including those marked as PROHIBITED, and supports querying by card number or retrieving the entire history.
 
@@ -50,9 +53,72 @@ Tracks all transactions, including those marked as PROHIBITED, and supports quer
 * DELETE /api/auth/user: Remove a user from the system.
 * GET /api/auth/list: List all users in the system.
 ## Example Scenarios
-* Transaction Validation: A transaction with an amount above the threshold might be categorized as MANUAL_PROCESSING and later reviewed based on feedback.
-* Feedback Handling: Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
-* History Retrieval: Easily access transaction records to review past activities and audit transactions for anomalies.
+### Transaction Validation: A transaction with an amount above the threshold might be categorized as MANUAL_PROCESSING and later reviewed based on feedback.
+POST /api/antifraud/transaction
+Request Body:
+
+  ```
+{
+  "amount": 210,
+  "ip": "192.168.1.1",
+  "number": "4000008449433403",
+  "region": "EAP",
+  "date": "2022-01-22T16:04:00"
+}
+  ```
+Response:
+```
+{
+  "result": "MANUAL_PROCESSING",
+  "info": "amount"
+}
+```
+### Feedback Handling: Adjusts detection limits dynamically based on feedback from SUPPORT specialists, refining the system’s accuracy.
+### History Retrieval: Easily access transaction records to review past activities and audit transactions for anomalies.
+GET /api/antifraud/history/4000008449433403
+ 
+Response:
+
+```
+[
+  {
+    "transactionId": 1,
+    "amount": 210,
+    "ip": "192.168.1.1",
+    "number": "4000008449433403",
+    "region": "EAP",
+    "date": "2022-01-22T16:04:00",
+    "result": "MANUAL_PROCESSING",
+    "feedback": ""
+  }
+]
+```
+
+Example 3: PUT /api/antifraud/transaction
+Request Body:
+
+json
+Copy code
+{
+  "transactionId": 1,
+  "feedback": "ALLOWED"
+}
+Response:
+
+json
+Copy code
+{
+  "transactionId": 1,
+  "amount": 210,
+  "ip": "192.168.1.1",
+  "number": "4000008449433403",
+  "region": "EAP",
+  "date": "2022-01-22T16:04:00",
+  "result": "MANUAL_PROCESSING",
+  "feedback": "ALLOWED"
+}
+
+  
 ## Installation and Setup
 Clone the Repository
 
